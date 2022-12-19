@@ -9,7 +9,7 @@ class EmployeeApp extends Component {
         <Router>
           <Routes>
             <Route
-              path="/employeeRegistration"
+              path="/"
               element={<RegistrationForm />}
             />
           </Routes>

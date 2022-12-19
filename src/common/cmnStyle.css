@@ -10,19 +10,30 @@
 }
 
 .container {
-  padding: 20px;
+  padding: 10px;
+  background-color: aliceblue;
 }
 
 .btnSec {
   padding-top: 5%;
 }
 
+.header {
+  background-color: darkblue;
+   color: white;
+    padding: 5px;
+    margin-bottom: 30px;
+}
 .btn {
-  padding: 20px;
+  padding: 10px;
   width: 15%;
 }
 
 .formik {
   width: 80%;
   padding-left: 20%;
+}
+
+.textbox {
+  box-shadow: 2px;
 }

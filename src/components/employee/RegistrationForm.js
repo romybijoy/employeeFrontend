@@ -17,9 +17,8 @@ const validate = Yup.object({
     .required("Employee name is required")
     .max(100, "Employee name can not be more than 100 characters long"),
   department: Yup.string().required("Select your department"),
-  dateOfJoining: Yup.string()
-    .required("Date Of Joining is required")
-    .nullable(),
+  dateOfJoining: Yup.date()
+    .required("Date Of Joining is required"),
   salary: Yup.string()
     .max(10, "Salary can not be more than 10 digits long")
     .required("Salary is required"),
@@ -70,7 +69,7 @@ class RegistrationForm extends Component {
     this.setState({
       employeeNo: "",
       employeeName: "",
-      dateOfJoining: moment(new Date()).format("dd/MM/yyyy"),
+      dateOfJoining: moment().format("dd/MM/yyyy"),
       department: "",
       salary: "",
     });
@@ -82,8 +81,9 @@ class RegistrationForm extends Component {
 
     return (
       <div>
+        <header className="header">
         <h1 style={{ paddingTop: "5px" }}>Employee Registration Form</h1>
-
+        </header>
         <div className="container">
           <Formik
             initialValues={{
@@ -94,7 +94,7 @@ class RegistrationForm extends Component {
               salary,
             }}
             onSubmit={this.onSubmit}
-            validateOnChange={false}
+            validateOnChange={true}
             validateOnBlur={false}
             validationSchema={validate}
           >
@@ -106,7 +106,7 @@ class RegistrationForm extends Component {
                     <span className="astrk">*</span>
                   </label>
                   <Field
-                    className="form-control"
+                    className="form-control textbox"
                     type="number"
                     name="employeeNo"
                     placeholder="Employee Number"
@@ -124,7 +124,7 @@ class RegistrationForm extends Component {
                     <span className="astrk">*</span>
                   </label>
                   <Field
-                    className="form-control"
+                    className="form-control textbox"
                     type="text"
                     name="employeeName"
                     placeholder="Employee Name"
@@ -142,7 +142,7 @@ class RegistrationForm extends Component {
                     <span className="astrk">*</span>
                   </label>
                   <Field
-                    className="form-control"
+                    className="form-control textbox"
                     type="date"
                     name="dateOfJoining"
                   ></Field>
@@ -169,7 +169,7 @@ class RegistrationForm extends Component {
                     <span className="astrk">*</span>
                   </label>
                   <Field
-                    className="form-control"
+                    className="form-control textbox"
                     type="number"
                     name="salary"
                     placeholder="Salary"
